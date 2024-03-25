@@ -1,3 +1,4 @@
+import controller.AuthorController;
 import database.ConfigDB;
 import model.AuthorModel;
 
@@ -12,8 +13,8 @@ public class Main {
 
         do {
             option = JOptionPane.showInputDialog("""
-                    1. List Authors.
-                    2. Insert Author.
+                    1. Insert Authors.
+                    2. List Author.
                     3. Update Author.
                     4. Delete Author.
                     5. Get coder by ID.
@@ -22,8 +23,13 @@ public class Main {
                     Choose an option:
                     """);
 
-            switch (option){
+            switch (option) {
                 case "1":
+                    AuthorController.add();
+                    break;
+                case "2":
+                    AuthorController.list();
+                    break;
 
             }
         } while (!option.equals("6"));
