@@ -16,7 +16,7 @@ public class ConfigDB {
             String user = "uq2qxdnux8c3kcks";
             String password = "znEyPrXvWTeBJPCvCmWI";
 
-            connection = (Connection) DriverManager.getConnection(url, user, password);
+            connection = DriverManager.getConnection(url, user, password);
             System.out.println("Conectado exitosamente");
 
         } catch (SQLException error) {
@@ -34,7 +34,8 @@ public class ConfigDB {
         try {
             if (connection != null){
                 connection.close();
-                JOptionPane.showMessageDialog(null, "Connection closed successfully.");
+                System.out.println("Connection Closed Successfully.");
+//                JOptionPane.showMessageDialog(null, "Connection closed successfully.");
             }else{
                 JOptionPane.showMessageDialog(null, "There is no DB opened. ");
             }

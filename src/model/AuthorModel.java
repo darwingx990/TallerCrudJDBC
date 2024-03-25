@@ -16,11 +16,11 @@ public class AuthorModel implements CRUD {
 
     @Override
     public Object add(Object obj) {
-        Connection objConnection = ConfigDB.openConnection();
         Authors objAuthor = (Authors) obj;
 
         try {
-            String sql = "INSERT INTO autores name, nacionality) VALUES (?, ?); ";
+        Connection objConnection = ConfigDB.openConnection();
+            String sql = "INSERT INTO autores (name, nacionality) VALUES (?, ?);";
 
             PreparedStatement objPrepare = objConnection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             objPrepare.setString(1, objAuthor.getName());
@@ -39,7 +39,7 @@ public class AuthorModel implements CRUD {
 
         }
 
-        ConfigDB.closeConnection();
+//        ConfigDB.closeConnection();
 
         return objAuthor;
     }
@@ -73,7 +73,7 @@ public class AuthorModel implements CRUD {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error >> " + e.getMessage());
         }
-        ConfigDB.closeConnection();
+//        ConfigDB.closeConnection();
         return authorlist;
     }
 
